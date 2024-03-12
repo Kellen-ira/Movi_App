@@ -10,6 +10,7 @@ import Search from './Search.js';
 import Profile from './Profile.js';
 import List from './MyList.js';
 import Action from './Action.js';
+import ThemeProvider from './ThemeProvide.js';
 import EditProfile from './EditProfile.js';
  import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -98,11 +99,12 @@ const TopNavigation = ()=>{
 
 export default function App() {
   return (
-   
+   <ThemeProvider>
          <NavigationContainer>
    <StackNavigation/>
+   
        </NavigationContainer>
- 
+ </ThemeProvider>
        
   
    );

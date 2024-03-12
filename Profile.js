@@ -2,23 +2,33 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TouchableOpacity, View, Image, Pressable } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Bottoms from './components/Bottoms.jsx';
-
+import { ChangeDarkMode } from './ThemeProvide.js';
 import { TextInput, Checkbox } from "react-native-paper";
 import Imagecomp from './components/Imagecomp.jsx';
 import { Icon } from 'react-native-elements';
 import { MyDrawer } from './Drawer.js';
+import React, { useContext } from 'react';
+import { Dimensions } from 'react-native';
 
-const image = require('../Movi-master/assets/k.jpg')
+const height=Dimensions.get('window').height;
+const profile =({navigation})=>{
+    
+    
+}
+
+
 export default function Profile({ navigation }) {
-
+    const {darkMode,HandleMode} = useContext (ChangeDarkMode)
 
     return (
 
-        <View style={{ backgroundColor: "#1f2123", height: 800 }}>
+        <View style={{ backgroundColor:darkMode ? "white" : "#1f2123", height: height }}>
 
             <View style={{ backgroundColor: "#1f2123", paddingLeft: 50, paddingTop: 30, paddingBottom: 20, display: 'flex', flexDirection: 'row', gap: 25 }}>
-
-                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20 }}>More</Text>
+                
+            <TouchableOpacity  onPress={HandleMode}>
+                <Text style={{ color: darkMode ? "#1f2123" : "white", fontWeight: 'bold', fontSize: 20 }}>More</Text>
+                </TouchableOpacity> 
             </View>
             <View style={{ paddingLeft: 140, backgroundColor: "#1f2123", paddingTop: 10 }}>
                 <Image source={require('./assets/k.jpg')} style={{ width: 150, height: 150 }} />
